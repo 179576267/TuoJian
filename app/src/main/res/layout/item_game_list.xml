@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.wzf.boardgame.ui.views.ScaleImageView
+    <com.wzf.tuojian.ui.views.ScaleImageView
         android:id="@+id/im"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
