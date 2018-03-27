@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="81dp">
+
+    <ImageView
+        android:id="@+id/im_avatar"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:src="@mipmap/icon_default_boy_circle"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:layout_toRightOf="@id/im_avatar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="10dp"
+            android:layout_weight="1">
+
+
+            <LinearLayout
+                android:id="@+id/ll_flag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true">
+                <ImageView
+                    android:id="@+id/im_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/home_icon_image_nor"
+                    android:layout_marginRight="5dp"/>
+
+                <ImageView
+                    android:id="@+id/im_prime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/home_icon_prime_nor"
+                    android:layout_marginRight="5dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/im_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/home_icon_up_nor"
+                   />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/ll_flag"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:textSize="15sp"
+                android:text="简单发个开箱"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+        <TextView
+            android:id="@+id/tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textSize="15sp"
+            android:text="wang"
+            android:textColor="#7d7d7d"
+            android:layout_toRightOf="@id/im_avatar"
+            />
+            <ImageView
+                android:id="@+id/im_v"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/user_icon_accreditation_nor"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="30dp"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_centerVertical="true"
+                android:textSize="8sp"
+                android:text="2017-02-20 17:02"
+                android:textColor="#b9b9b9"
+                />
+
+            <TextView
+                android:id="@+id/tv_comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:maxLines="1"
+                android:layout_centerVertical="true"
+                android:textSize="8sp"
+                android:text="2100"
+                android:textColor="#5C5D5E"
+                />
+
+            <ImageView
+                android:id="@+id/im_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/home_icon_comment_nor"
+                android:layout_toLeftOf="@id/tv_comment_count"
+                android:layout_marginRight="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_view_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/im_comment"
+                android:maxLines="1"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="7dp"
+                android:textSize="8sp"
+                android:text="2100"
+                android:textColor="#5C5D5E"
+                />
+
+            <ImageView
+                android:id="@+id/im_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/home_icon_view_nor"
+                android:layout_toLeftOf="@id/tv_view_count"
+                android:layout_marginRight="5dp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="0.8dp"
+    android:background="@color/bgUnderLine"
+    android:layout_alignParentBottom="true"/>
+</RelativeLayout>
