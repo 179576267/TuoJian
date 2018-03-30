@@ -15,37 +15,37 @@ public class DebugLog {
 
     public static void v(String tag, String msg) {
         if (UrlService.DEBUG) {
-            Log.v(tag, msg);
+            Log.v(tag, getContent(msg));
         }
     }
 
     public static void d(String tag, String msg) {
         if (UrlService.DEBUG) {
-            Log.d(tag, msg);
+            Log.d(tag, getContent(msg));
         }
     }
 
     public static void i(String tag, String msg) {
         if (UrlService.DEBUG) {
-            Log.i(tag, msg);
+            Log.i(tag, getContent(msg));
         }
     }
 
     public static void i(String msg) {
         if (UrlService.DEBUG) {
-            Log.i("DEBUG", msg);
+            Log.i("DEBUG", getContent(msg));
         }
     }
 
     public static void w(String tag, String msg) {
         if (UrlService.DEBUG) {
-            Log.w(tag, msg);
+            Log.w(tag, getContent(msg));
         }
     }
 
     public static void e(String tag, String msg) {
         if (UrlService.DEBUG) {
-            Log.e(tag, msg);
+            Log.e(tag, getContent(msg));
         }
     }
 
@@ -58,6 +58,19 @@ public class DebugLog {
             Toast.makeText(MyApplication.getAppInstance().getApplicationContext(),
                     s,
                     Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+    private static String getContent(Object content)
+    {
+        StackTraceElement element = null;
+        try {
+            element = Thread.currentThread().getStackTrace()[4];
+            String[] clsNames = element.getClassName().split("\\.");
+            return clsNames[clsNames.length-1] + ":" + element.getLineNumber() +  " [" + element.getMethodName() + "] -> " + content;
+        } catch (Exception e) {
+            return "";
         }
     }
 

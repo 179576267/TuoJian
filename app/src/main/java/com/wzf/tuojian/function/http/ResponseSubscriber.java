@@ -18,7 +18,7 @@ import rx.Subscriber;
  */
 
 public class ResponseSubscriber<T> extends Subscriber<BaseResponse<T>> {
-    public static final int REQUEST_SUCCESS = 200;
+    public static final int REQUEST_SUCCESS = 0;
     public static int NET_OR_SERVER_ERROR = 0X4562;
     private NetRequestWaitDialog dialog;
     private WeakReference<Activity> contextWeakReference;
@@ -58,6 +58,7 @@ public class ResponseSubscriber<T> extends Subscriber<BaseResponse<T>> {
         }
         try {
 //            onFailure(NET_OR_SERVER_ERROR, e.toString());
+            e.printStackTrace();
             DebugLog.e("OKHTTP",e.toString());
             onFailure(NET_OR_SERVER_ERROR, "请求出了点小状况哦，请稍后重试");
         } catch (Exception e1) {

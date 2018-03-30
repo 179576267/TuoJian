@@ -17,6 +17,7 @@ public class BaseRequestDto implements Serializable{
         String json = JsonUtils.toJson(this);
         DebugLog.w("OKHTTP", " ——————————————————————————----->>>> before encode params <<<<--——————————————————————————————————---\n");
         DebugLog.d("OKHTTP", JsonUtils.format(json) + "\n");
-        return MathUtilAndroid.encodeAES(json);
+//        return MathUtilAndroid.encodeAES(json);
+        return json;
     }
 }

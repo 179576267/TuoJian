@@ -27,13 +27,15 @@ import retrofit2.http.POST;
 import rx.Observable;
 
 /**
- * Created by wangzhenfei on 2017/2/28.
+ *
+ * @author wangzhenfei
+ * @date 2017/2/28
  */
 
 public interface UrlService {
-    boolean DEBUG = false;
+    boolean DEBUG = true;
     String BASE_RESOURCE = "http://192.168.2.202:8081/boxingmanager/";
-    String BASE_URL = "http://server.mvoicer.com/BRPG/";
+    String BASE_URL = "http://www.tuojianzx.com:8080/tuojian/";
     String LOGO_URL = "http://os7i4k6w5.bkt.clouddn.com/image/cxw/1506427655797.jpg";
     String DEFAULT_SHARE_URL = "www.mvoicer.com/share.html";
 

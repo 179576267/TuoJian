@@ -47,7 +47,7 @@ public class MyApplication extends MobApplication {
 
     //家里修改的的  对对对
     private void intBugly() {
-        /* Bugly SDK初始化
+        /*** Bugly SDK初始化
         * 参数1：上下文对象
         * 参数2：APPID，平台注册时得到,注意替换成你的appId
         * 参数3：是否开启调试模式，调试模式下会输出'CrashReport'tag的日志
@@ -58,9 +58,9 @@ public class MyApplication extends MobApplication {
         */
 
         if(UrlService.DEBUG){
-            Bugly.init(getApplicationContext(), "900010630", false);
+            Bugly.init(getApplicationContext(), "ad28df98be", false);
         }else {
-            Bugly.init(getApplicationContext(), "900010630", false);
+            Bugly.init(getApplicationContext(), "ad28df98be", false);
         }
         BaiDuMapManager.getInstance().getLocationMessage(null);
 //        String ui = null;
@@ -69,7 +69,8 @@ public class MyApplication extends MobApplication {
 
     private void initImagePicker() {
         ImagePicker imagePicker = ImagePicker.getInstance();
-        imagePicker.setImageLoader(new ImagePickerImageLoader()); //图片加载器
+        //图片加载器
+        imagePicker.setImageLoader(new ImagePickerImageLoader());
     }
 
     public  static  MyApplication getAppInstance(){

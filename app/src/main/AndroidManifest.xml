@@ -38,11 +38,11 @@
         android:supportsRtl="true"
         android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="TD_APP_ID" android:value="768702735A9540688B295E50837EEE3D" />
-        <meta-data android:name="TD_CHANNEL_ID" android:value="BoardGame" />
+        <meta-data android:name="TD_APP_ID" android:value="D9BF6338DAB549D3BBFD767A27BD47B7" />
+        <meta-data android:name="TD_CHANNEL_ID" android:value="TuoJian" />
 
-        <meta-data android:name="Mob-AppKey" android:value="1fd4b580f3b24"/>
-        <meta-data android:name="Mob-AppSecret" android:value="2d69a5525a549b6584e6faf76f90fd9c"/>
+        <meta-data android:name="Mob-AppKey" android:value="24e8da4548370"/>
+        <meta-data android:name="Mob-AppSecret" android:value="545f0eb02d88efe453820050aada1505"/>
         <activity android:name="com.wzf.tuojian.ui.activity.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

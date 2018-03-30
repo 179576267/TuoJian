@@ -45,7 +45,8 @@ public class DecodeParamsInterceptor implements Interceptor {
         sb.append(baseResponse.getMsg());
         sb.append("\"");
         sb.append(",\"response\":");
-        sb.append(MathUtilAndroid.decodeAES(baseResponse.getResponse().toString()));
+//        sb.append(MathUtilAndroid.decodeAES(baseResponse.getResponse().toString()));
+        sb.append(baseResponse.getResponse() == null ? "" : baseResponse.getResponse().toString());
         sb.append("}");
 
         ResponseBody responseBody = ResponseBody.create(type, sb.toString());

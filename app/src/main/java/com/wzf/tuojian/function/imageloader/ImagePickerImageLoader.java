@@ -12,7 +12,9 @@ import com.wzf.tuojian.R;
 import java.io.File;
 
 /**
- * Created by Administrator on 2016/7/19.
+ *
+ * @author Administrator
+ * @date 2016/7/19
  */
 public class ImagePickerImageLoader implements ImageLoader {
     @Override
