@@ -1,6 +1,7 @@
 package com.wzf.tuojian.constant;
 
 import com.wzf.tuojian.function.http.OkHttpUtils;
+import com.wzf.tuojian.function.http.dto.request.GetSmsCodeReqDto;
 import com.wzf.tuojian.function.http.dto.response.BaseResponse;
 import com.wzf.tuojian.function.http.dto.response.CommentListResDto;
 import com.wzf.tuojian.function.http.dto.response.CommunityListResDto;
@@ -21,6 +22,7 @@ import com.wzf.tuojian.function.http.dto.response.ReplyListReqDto;
 import com.wzf.tuojian.function.http.dto.response.SearchUserResDto;
 import com.wzf.tuojian.function.http.dto.response.UserInfoResDto;
 
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
@@ -45,8 +47,7 @@ public interface UrlService {
     //==================================user=============================================
     //获取验证码
     @POST("user/getSmsCode")
-    @FormUrlEncoded
-    Observable<BaseResponse<Object>>  smsCode(@Field("params") String params);
+    Observable<BaseResponse<Object>>  smsCode(@Body GetSmsCodeReqDto params);
 
     //注册
     @POST("user/register")

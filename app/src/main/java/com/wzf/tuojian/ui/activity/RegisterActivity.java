@@ -110,7 +110,7 @@ public class RegisterActivity extends BaseActivity {
         GetSmsCodeReqDto reqDto = new GetSmsCodeReqDto();
         reqDto.setUserMobile(phone);
         reqDto.setCodeType(GetSmsCodeReqDto.SMS_CODE_REGISTER);
-        OkHttpUtils.getInstance().getUrlService(UrlService.class).smsCode(reqDto.toEncodeString())
+        OkHttpUtils.getInstance().getUrlService(UrlService.class).smsCode(reqDto)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new ResponseSubscriber<Object>(this, true) {

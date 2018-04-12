@@ -39,7 +39,7 @@ public class OkHttpUtils {
                 .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .addInterceptor(new AddParamInterceptor())//添加头部headers
                 .addInterceptor(new LoggerInterceptor(null, true))
-                .addInterceptor(new DecodeParamsInterceptor())//解密
+//                .addInterceptor(new DecodeParamsInterceptor())//解密
                 .addInterceptor(new OkhttpOffLineCacheInterceptor())//离线缓存
                 .addNetworkInterceptor(new OkhttpOnLineCacheInterceptor());//在线缓存
                 retrofitBuilder = new Retrofit.Builder()

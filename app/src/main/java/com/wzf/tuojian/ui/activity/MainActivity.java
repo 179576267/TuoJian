@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity {
         GetSmsCodeReqDto reqDto = new GetSmsCodeReqDto();
         reqDto.setUserMobile("18521709590");
         reqDto.setCodeType(GetSmsCodeReqDto.SMS_CODE_REGISTER);
-        UrlService.SERVICE.smsCode(reqDto.toEncodeString())
+        UrlService.SERVICE.smsCode(reqDto)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(new ResponseSubscriber<Object>(this, true) {

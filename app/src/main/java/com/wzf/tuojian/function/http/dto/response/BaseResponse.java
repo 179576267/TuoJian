@@ -9,40 +9,40 @@ import android.text.TextUtils;
  */
 
 public class BaseResponse<T> {
-    private int resultCode;
-    private String msg;
-    private T response;
+    private int code;
+    private String message;
+    private T data;
 
     public int getResultCode() {
-        return resultCode;
+        return code;
     }
 
     public void setResultCode(int resultCode) {
-        this.resultCode = resultCode;
+        this.code = resultCode;
     }
 
     public String getMsg() {
-        return TextUtils.isEmpty(msg) ? "" : msg;
+        return TextUtils.isEmpty(message) ? "" : message;
     }
 
     public void setMsg(String msg) {
-        this.msg = msg;
+        this.message = msg;
     }
 
     public T getResponse() {
-        return response;
+        return data;
     }
 
     public void setResponse(T response) {
-        this.response = response;
+        this.data = response;
     }
 
     @Override
     public String toString() {
         return "BaseResponse{" +
-                "resultCode=" + resultCode +
-                ", msg='" + msg + '\'' +
-                ", response=" + response +
+                "code=" + code +
+                ", message='" + message + '\'' +
+                ", data=" + data +
                 '}';
     }
 }

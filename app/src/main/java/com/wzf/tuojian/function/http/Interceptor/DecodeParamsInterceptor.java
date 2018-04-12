@@ -36,20 +36,20 @@ public class DecodeParamsInterceptor implements Interceptor {
         }
 //        baseResponse.setResponse(MathUtilAndroid.decodeAES(baseResponse.getResponse().toString()));
 //        String jsonStr = JsonUtils.toJson(baseResponse);
-        StringBuffer sb = new StringBuffer();
-        sb.append("{");
-        sb.append("\"resultCode\":");
-        sb.append(baseResponse.getResultCode());
-        sb.append(",\"msg\":");
-        sb.append("\"");
-        sb.append(baseResponse.getMsg());
-        sb.append("\"");
-        sb.append(",\"response\":");
-//        sb.append(MathUtilAndroid.decodeAES(baseResponse.getResponse().toString()));
-        sb.append(baseResponse.getResponse() == null ? "" : baseResponse.getResponse().toString());
-        sb.append("}");
-
-        ResponseBody responseBody = ResponseBody.create(type, sb.toString());
-        return originalResponse.newBuilder().body(responseBody).build();
+//        StringBuffer sb = new StringBuffer();
+//        sb.append("{");
+//        sb.append("\"code\":");
+//        sb.append(baseResponse.getResultCode());
+//        sb.append(",\"message\":");
+//        sb.append("\"");
+//        sb.append(baseResponse.getMsg());
+//        sb.append("\"");
+//        sb.append(",\"data\":");
+////        sb.append(MathUtilAndroid.decodeAES(baseResponse.getResponse().toString()));
+//        sb.append(baseResponse.getResponse() == null ? "" : baseResponse.getResponse().toString());
+//        sb.append("}");
+//
+//        ResponseBody responseBody = ResponseBody.create(type, sb.toString());
+        return originalResponse;
     }
 }
