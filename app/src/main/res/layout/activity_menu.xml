@@ -44,11 +44,9 @@
                     android:layout_height="match_parent"
                     android:button="@null"
                     android:checked="true"
-                    android:drawableTop="@drawable/selector_im_community"
                     android:gravity="center"
                     android:paddingTop="7dp"
                     android:text="社区"
-                    android:textColor="@drawable/selector_text_menu"
                     android:textSize="13sp" />
 
             </RelativeLayout>
@@ -64,11 +62,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:button="@null"
-                    android:drawableTop="@drawable/selector_im_board_game"
                     android:gravity="center"
                     android:paddingTop="7dp"
                     android:text="桌游"
-                    android:textColor="@drawable/selector_text_menu"
                     android:textSize="13sp" />
 
                 <com.wzf.tuojian.ui.views.RedPoint
@@ -94,11 +90,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:button="@null"
-                    android:drawableTop="@drawable/selector_im_me"
                     android:gravity="center"
                     android:paddingTop="7dp"
                     android:text="个人"
-                    android:textColor="@drawable/selector_text_menu"
                     android:textSize="13sp" />
 
                 <com.wzf.tuojian.ui.views.RedPoint

@@ -7,15 +7,15 @@ package com.wzf.tuojian.function.http.dto.request;
 public class GetSmsCodeReqDto extends BaseRequestDto{
     public static final String SMS_CODE_REGISTER = "1";
     public static final String SMS_CODE_PSW = "2";
-    private String userMobile;
+    private String phoneNum;
     private String codeType;
 
-    public String getUserMobile() {
-        return userMobile;
+    public String getPhoneNum() {
+        return phoneNum;
     }
 
-    public void setUserMobile(String userMobile) {
-        this.userMobile = userMobile;
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
     public String getCodeType() {

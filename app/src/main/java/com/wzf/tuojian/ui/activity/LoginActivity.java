@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.wzf.tuojian.R;
 import com.wzf.tuojian.constant.UrlService;
 import com.wzf.tuojian.function.http.ResponseSubscriber;
-import com.wzf.tuojian.function.http.dto.request.RegisterRequestDto;
+import com.wzf.tuojian.function.http.dto.request.AccountRequestDto;
 import com.wzf.tuojian.function.http.dto.response.LoginResDto;
 import com.wzf.tuojian.function.share.PlatformAuthorizeUserInfoManager;
 import com.wzf.tuojian.ui.base.BaseActivity;
@@ -29,14 +29,14 @@ import rx.schedulers.Schedulers;
  */
 
 public class LoginActivity extends BaseActivity {
-    @Bind(R.id.tv_center)
-    TextView tvCenter;
+//    @Bind(R.id.tv_center)
+//    TextView tvCenter;
     @Bind(R.id.et_phone)
     EditText etPhone;
     @Bind(R.id.et_psw)
     EditText etPsw;
-    @Bind(R.id.forget_psd)
-    TextView forgetPsd;
+//    @Bind(R.id.forget_psd)
+//    TextView forgetPsd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,29 +48,29 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void initView() {
-        tvCenter.setText("登录");
-        tvCenter.setVisibility(View.VISIBLE);
+//        tvCenter.setText("登录");
+//        tvCenter.setVisibility(View.VISIBLE);
         etPhone.setFilters(REGX.getFilters(REGX.REGX_MOBILE_INPUT));
-        forgetPsd.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //中划线
+//        forgetPsd.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //中划线
         etPhone.setText(UserInfo.getInstance().getPhone());
         etPhone.setSelection(UserInfo.getInstance().getPhone().length());
         etPsw.setText(UserInfo.getInstance().getPsw());
         etPsw.setSelection(UserInfo.getInstance().getPsw().length());
     }
 
-    @OnClick({R.id.forget_psd, R.id.to_register, R.id.btn_login, R.id.qq, R.id.wx, R.id.sina})
+    @OnClick({R.id.to_register, R.id.btn_login})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.forget_psd:
-                startActivity(new Intent(this, ForgetPwdActivity.class));
-                break;
+//            case R.id.forget_psd:
+////                startActivity(new Intent(this, ForgetPwdActivity.class));
+//                break;
             case R.id.to_register:
                 startActivity(new Intent(this, RegisterActivity.class));
                 break;
             case R.id.btn_login:
                 login();
                 break;
-            case R.id.qq:
+//            case R.id.qq:
 //                Platform platform = ShareSDK.getPlatform(QQ.NAME);
 //                Platform.ShareParams shareParams = new  Platform.ShareParams();
 //                shareParams.setText(ResourcesManager.getInstace(MobSDK.getContext()).getText());
@@ -79,13 +79,13 @@ public class LoginActivity extends BaseActivity {
 //                shareParams.setShareType(Platform.SHARE_WEBPAGE);
 ////                platform.setPlatformActionListener(platformActionListener);
 //                platform.share(shareParams);
-                PlatformAuthorizeUserInfoManager platAuth = new PlatformAuthorizeUserInfoManager(this);
-                platAuth.qqShareAuthorize();
-                break;
-            case R.id.wx:
-                break;
-            case R.id.sina:
-                break;
+//                PlatformAuthorizeUserInfoManager platAuth = new PlatformAuthorizeUserInfoManager(this);
+//                platAuth.qqShareAuthorize();
+//                break;
+//            case R.id.wx:
+//                break;
+//            case R.id.sina:
+//                break;
         }
     }
 
@@ -100,10 +100,10 @@ public class LoginActivity extends BaseActivity {
             showToast("密码应该是6-20位");
             return;
         }
-        RegisterRequestDto dto = new RegisterRequestDto();
-        dto.setUserPwd(pwd);
-        dto.setUserMobile(phone);
-        UrlService.SERVICE.login(dto.toEncodeString())
+        AccountRequestDto dto = new AccountRequestDto();
+        dto.setPwd(pwd);
+        dto.setPhoneNum(phone);
+        UrlService.SERVICE.login(dto)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new ResponseSubscriber<LoginResDto>(this, true) {
@@ -114,7 +114,7 @@ public class LoginActivity extends BaseActivity {
                         UserInfo.getInstance().setPhone(phone);
                         UserInfo.getInstance().setPsw(pwd);
                         showToast("登录成功");
-                        startActivity(new Intent(LoginActivity.this, MenuActivity.class));
+//                        startActivity(new Intent(LoginActivity.this, MenuActivity.class));
                         finish();
                     }
 

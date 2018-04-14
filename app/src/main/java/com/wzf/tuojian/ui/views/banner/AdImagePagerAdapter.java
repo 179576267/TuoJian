@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import com.wzf.tuojian.R;
 import com.wzf.tuojian.function.http.dto.response.MainBannerResDto;
 import com.wzf.tuojian.function.imageloader.ImageLoader;
-import com.wzf.tuojian.ui.activity.PostDetailActivity;
 import com.wzf.tuojian.ui.activity.WebViewActivity;
 
 import java.util.List;
@@ -53,7 +52,7 @@ public class AdImagePagerAdapter extends RecyclingPagerAdapter {
 			@Override
 			public void onClick(View v) {
 				if(vItem.getBannerType() == 1){
-					PostDetailActivity.startMethod(context, vItem.getPageUrl());
+//					PostDetailActivity.startMethod(context, vItem.getPageUrl());
 				}else if(vItem.getBannerType() == 2){
 					WebViewActivity.startMethod(context, vItem.getPageUrl());
 				}

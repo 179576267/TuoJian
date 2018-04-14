@@ -207,7 +207,7 @@ public class UserInfo {
         setUid(dto.getUserId());
         setToken(dto.getToken());
         HeaderParams.getInstance().setLoginTime(dto.getLoginTime());
-        updateLbs();
+//        updateLbs();
     }
 
     public void setUserInfo(UserInfoResDto dto){

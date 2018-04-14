@@ -29,7 +29,6 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="28dp"
-        android:src="@mipmap/start_bottom"
         android:visibility="visible"/>
 
 </RelativeLayout>

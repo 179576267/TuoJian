@@ -21,7 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_confirm_input"
         android:layout_margin="8dp"
-        android:background="@drawable/shape_textarea"
         android:gravity="start"
         android:hint="我来说两句"
         android:padding="5dp"

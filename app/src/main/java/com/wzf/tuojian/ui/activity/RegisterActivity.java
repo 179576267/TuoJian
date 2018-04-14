@@ -5,8 +5,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.wzf.tuojian.R;
 import com.wzf.tuojian.constant.UrlService;
@@ -14,7 +12,7 @@ import com.wzf.tuojian.function.CountTimeDownManager;
 import com.wzf.tuojian.function.http.OkHttpUtils;
 import com.wzf.tuojian.function.http.ResponseSubscriber;
 import com.wzf.tuojian.function.http.dto.request.GetSmsCodeReqDto;
-import com.wzf.tuojian.function.http.dto.request.RegisterRequestDto;
+import com.wzf.tuojian.function.http.dto.request.AccountRequestDto;
 import com.wzf.tuojian.ui.base.BaseActivity;
 import com.wzf.tuojian.utils.REGX;
 
@@ -25,16 +23,13 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by wzf on 2017/7/2.
+ *
+ * @author wzf
+ * @date 2017/7/2
  */
 
 public class RegisterActivity extends BaseActivity {
 
-
-    @Bind(R.id.im_left)
-    ImageView imLeft;
-    @Bind(R.id.tv_center)
-    TextView tvCenter;
     @Bind(R.id.et_nickname)
     EditText etNickname;
     @Bind(R.id.et_phone)
@@ -45,8 +40,6 @@ public class RegisterActivity extends BaseActivity {
     EditText etSmsCode;
     @Bind(R.id.btn_get_code)
     Button btnGetCode;
-    @Bind(R.id.et_invite_code)
-    EditText etInviteCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +50,6 @@ public class RegisterActivity extends BaseActivity {
     }
 
     private void initView() {
-        tvCenter.setText("注册");
-        tvCenter.setVisibility(View.VISIBLE);
-        imLeft.setVisibility(View.VISIBLE);
         etPhone.setFilters(REGX.getFilters(REGX.REGX_MOBILE_INPUT));
     }
 
@@ -97,6 +87,8 @@ public class RegisterActivity extends BaseActivity {
             case R.id.btn_login:
                 register();
                 break;
+            default:
+                break;
         }
     }
 
@@ -108,7 +100,7 @@ public class RegisterActivity extends BaseActivity {
         }
         CountTimeDownManager.start(60);
         GetSmsCodeReqDto reqDto = new GetSmsCodeReqDto();
-        reqDto.setUserMobile(phone);
+        reqDto.setPhoneNum(phone);
         reqDto.setCodeType(GetSmsCodeReqDto.SMS_CODE_REGISTER);
         OkHttpUtils.getInstance().getUrlService(UrlService.class).smsCode(reqDto)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -139,28 +131,25 @@ public class RegisterActivity extends BaseActivity {
             showToast("验证码不能为空");
             return;
         }
-        String nickName = etNickname.getText().toString();
-        if(TextUtils.isEmpty(nickName)){
-            showToast("昵称不能为空");
-            return;
-        }
-        if(nickName.length() > 15){
-            showToast("昵称不能超过15个字符");
-            return;
-        }
+//        String nickName = etNickname.getText().toString();
+//        if(TextUtils.isEmpty(nickName)){
+//            showToast("昵称不能为空");
+//            return;
+//        }
+//        if(nickName.length() > 15){
+//            showToast("昵称不能超过15个字符");
+//            return;
+//        }
         String pwd = etPsw.getText().toString();
         if(TextUtils.isEmpty(pwd) || pwd.length() < 6 || pwd.length() > 20){
             showToast("密码应该是6-20位");
             return;
         }
-        String inviteCode = etInviteCode.getText().toString();
-        RegisterRequestDto dto = new RegisterRequestDto();
-        dto.setNickname(nickName);
+        AccountRequestDto dto = new AccountRequestDto();
         dto.setSmsCode(smsCode);
-        dto.setUserPwd(pwd);
-        dto.setUserMobile(phone);
-        dto.setUserId(inviteCode);
-        UrlService.SERVICE.register(dto.toEncodeString())
+        dto.setPwd(pwd);
+        dto.setPhoneNum(phone);
+        UrlService.SERVICE.register(dto)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new ResponseSubscriber<Object>(this, true) {

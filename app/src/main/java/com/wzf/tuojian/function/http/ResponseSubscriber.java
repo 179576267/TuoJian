@@ -18,7 +18,7 @@ import rx.Subscriber;
  */
 
 public class ResponseSubscriber<T> extends Subscriber<BaseResponse<T>> {
-    public static final int REQUEST_SUCCESS = 0;
+    public static final int REQUEST_SUCCESS = 200;
     public static int NET_OR_SERVER_ERROR = 0X4562;
     private NetRequestWaitDialog dialog;
     private WeakReference<Activity> contextWeakReference;

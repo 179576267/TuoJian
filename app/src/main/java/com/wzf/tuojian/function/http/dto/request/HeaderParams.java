@@ -24,7 +24,7 @@ public class HeaderParams {
     private String userId;
     private String token;
     private String loginTime;
-    private String client = "BRPG";
+    private String client = "TuoJianZX";
     private String clicentVersion ;
     private String os = "Android";
     private String osVersion;

@@ -11,7 +11,7 @@ import android.view.WindowManager;
 import com.wzf.tuojian.R;
 import com.wzf.tuojian.constant.UrlService;
 import com.wzf.tuojian.function.http.ResponseSubscriber;
-import com.wzf.tuojian.function.http.dto.request.RegisterRequestDto;
+import com.wzf.tuojian.function.http.dto.request.AccountRequestDto;
 import com.wzf.tuojian.function.http.dto.response.LoginResDto;
 import com.wzf.tuojian.ui.base.BaseActivity;
 import com.wzf.tuojian.ui.model.UserInfo;
@@ -64,10 +64,10 @@ public class StartActivity extends BaseActivity {
             return;
         }
 
-        RegisterRequestDto dto = new RegisterRequestDto();
-        dto.setUserPwd(psw);
-        dto.setUserMobile(accountNum);
-        UrlService.SERVICE.login(dto.toEncodeString())
+        AccountRequestDto dto = new AccountRequestDto();
+        dto.setPwd(psw);
+        dto.setPhoneNum(accountNum);
+        UrlService.SERVICE.login(dto)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new ResponseSubscriber<LoginResDto>() {
@@ -91,7 +91,7 @@ public class StartActivity extends BaseActivity {
 
     private void nextActivity() {
         if(loginSuccess){
-            Intent intent = new Intent(this, MenuActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }else {
             UserInfo.isLogin(this);
