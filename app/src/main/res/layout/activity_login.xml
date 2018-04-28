@@ -1,163 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/login_background">
+    android:background="@mipmap/login_background"
+    android:orientation="vertical">
+
     <ImageView
+        android:id="@+id/im_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/login_logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="92dp"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@mipmap/login_logo" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/im_logo"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="3dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="请输入手机号"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/white"
+            android:alpha="0.5"></View>
+
+        <EditText
+            android:id="@+id/et_psw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="3dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="16sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/white"
+            android:alpha="0.5"></View>
+
+        <ImageView
+            android:id="@+id/btn_login2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/login_button_login2" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:text="忘记密码?"
+                android:textSize="15sp"
+                android:textColor="#ff6400"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:text="新用户注册"
+                android:textSize="15sp"
+                android:layout_alignParentRight="true"
+                android:textColor="#ff6400"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="52dp"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:orientation="horizontal">
+
         <ImageView
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@mipmap/login_button_login"/>
+            android:src="@mipmap/login_button_login" />
+
         <ImageView
             android:id="@+id/to_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@mipmap/login_button_user"/>
+            android:src="@mipmap/login_button_user" />
     </LinearLayout>
+
 
     <!--&lt;!&ndash;顶部栏&ndash;&gt;-->
     <!--<include-->
-        <!--android:id="@+id/top"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--layout="@layout/layout_top"/>-->
+    <!--android:id="@+id/top"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--layout="@layout/layout_top"/>-->
 
     <!--<LinearLayout-->
-        <!--android:id="@+id/ll_input"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="96dp"-->
-        <!--android:layout_marginTop="16dp"-->
-        <!--android:layout_marginLeft="10dp"-->
-        <!--android:layout_marginRight="10dp"-->
-        <!--android:layout_below="@id/top"-->
-        <!--android:orientation="vertical"-->
-        <!--android:background="@drawable/shape_white_8">-->
-        <!--<EditText-->
-            <!--android:id="@+id/et_phone"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="@null"-->
-            <!--android:hint="请输入手机号"-->
-            <!--android:paddingLeft="16dp"-->
-            <!--android:textSize="18sp"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:maxLength="11"-->
-            <!--android:maxLines="1"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:layout_weight="1"/>-->
-        <!--<View-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0.5dp"-->
-            <!--android:background="@color/bgUnderLine"/>-->
+    <!--android:id="@+id/ll_input"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="96dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_marginRight="10dp"-->
+    <!--android:layout_below="@id/top"-->
+    <!--android:orientation="vertical"-->
+    <!--android:background="@drawable/shape_white_8">-->
+    <!--<EditText-->
+    <!--android:id="@+id/et_phone"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@null"-->
+    <!--android:hint="请输入手机号"-->
+    <!--android:paddingLeft="16dp"-->
+    <!--android:textSize="18sp"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:maxLength="11"-->
+    <!--android:maxLines="1"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:layout_weight="1"/>-->
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0.5dp"-->
+    <!--android:background="@color/bgUnderLine"/>-->
 
-        <!--<EditText-->
-            <!--android:id="@+id/et_psw"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:paddingLeft="16dp"-->
-            <!--android:textSize="18sp"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:inputType="textPassword"-->
-            <!--android:maxLength="15"-->
-            <!--android:maxLines="1"-->
-            <!--android:hint="请输入密码"-->
-            <!--android:background="@null"-->
-            <!--android:layout_weight="1"/>-->
+    <!--<EditText-->
+    <!--android:id="@+id/et_psw"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:paddingLeft="16dp"-->
+    <!--android:textSize="18sp"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:inputType="textPassword"-->
+    <!--android:maxLength="15"-->
+    <!--android:maxLines="1"-->
+    <!--android:hint="请输入密码"-->
+    <!--android:background="@null"-->
+    <!--android:layout_weight="1"/>-->
     <!--</LinearLayout>-->
 
     <!--<RelativeLayout-->
-        <!--android:id="@+id/ll_center"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@id/ll_input"-->
-        <!--android:layout_marginTop="16dp">-->
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textSize="13sp"-->
-            <!--android:text="请使用吾声账号登录"-->
-            <!--android:textColor="@color/textHint"-->
-            <!--android:layout_centerInParent="true"/>-->
+    <!--android:id="@+id/ll_center"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/ll_input"-->
+    <!--android:layout_marginTop="16dp">-->
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textSize="13sp"-->
+    <!--android:text="请使用吾声账号登录"-->
+    <!--android:textColor="@color/textHint"-->
+    <!--android:layout_centerInParent="true"/>-->
 
-        <!--<TextView-->
-            <!--android:id="@+id/forget_psd"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textSize="13sp"-->
-            <!--android:text="@string/forgetPsw"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:textColor="@color/textHint"-->
-            <!--android:layout_centerInParent="true"/>-->
+    <!--<TextView-->
+    <!--android:id="@+id/forget_psd"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textSize="13sp"-->
+    <!--android:text="@string/forgetPsw"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_marginRight="10dp"-->
+    <!--android:textColor="@color/textHint"-->
+    <!--android:layout_centerInParent="true"/>-->
     <!--</RelativeLayout>-->
 
     <!--<Button-->
-        <!--android:id="@+id/btn_login"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_marginTop="16sp"-->
-        <!--android:layout_marginRight="10dp"-->
-        <!--android:layout_marginLeft="10dp"-->
-        <!--android:layout_below="@+id/ll_center"-->
-        <!--android:text="登录"-->
-        <!--android:textColor="@color/white"-->
-        <!--android:textSize="18sp"/>-->
+    <!--android:id="@+id/btn_login"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_marginTop="16sp"-->
+    <!--android:layout_marginRight="10dp"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_below="@+id/ll_center"-->
+    <!--android:text="登录"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:textSize="18sp"/>-->
     <!---->
     <!--<LinearLayout-->
-        <!--android:visibility="gone"-->
-        <!--android:layout_below="@id/btn_login"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal">-->
-        <!--<Button-->
-            <!--android:id="@+id/qq"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:text="QQ"/>-->
-        <!--<Button-->
-            <!--android:id="@+id/wx"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:text="WX"/>-->
-        <!--<Button-->
-            <!--android:id="@+id/sina"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:text="SINA"/>-->
+    <!--android:visibility="gone"-->
+    <!--android:layout_below="@id/btn_login"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal">-->
+    <!--<Button-->
+    <!--android:id="@+id/qq"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="QQ"/>-->
+    <!--<Button-->
+    <!--android:id="@+id/wx"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="WX"/>-->
+    <!--<Button-->
+    <!--android:id="@+id/sina"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="SINA"/>-->
     <!--</LinearLayout>-->
 
     <!--<TextView-->
-        <!--android:id="@+id/to_register"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_marginTop="100dp"-->
-        <!--android:textSize="13sp"-->
-        <!--android:text="注册新账号"-->
-        <!--android:textColor="@color/textHint"-->
-        <!--android:layout_marginBottom="12dp"-->
-        <!--android:layout_centerInParent="true"/>-->
+    <!--android:id="@+id/to_register"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_marginTop="100dp"-->
+    <!--android:textSize="13sp"-->
+    <!--android:text="注册新账号"-->
+    <!--android:textColor="@color/textHint"-->
+    <!--android:layout_marginBottom="12dp"-->
+    <!--android:layout_centerInParent="true"/>-->
 
 </RelativeLayout>
