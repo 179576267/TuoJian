@@ -1,25 +1,20 @@
 package com.wzf.tuojian.ui.activity;
 
 import android.content.Intent;
-import android.graphics.Paint;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.wzf.tuojian.R;
 import com.wzf.tuojian.constant.UrlService;
 import com.wzf.tuojian.function.http.ResponseSubscriber;
-import com.wzf.tuojian.function.http.dto.request.AccountRequestDto;
+import com.wzf.tuojian.function.http.dto.request.AccountReqDto;
 import com.wzf.tuojian.function.http.dto.response.LoginResDto;
-import com.wzf.tuojian.function.share.PlatformAuthorizeUserInfoManager;
 import com.wzf.tuojian.ui.base.BaseActivity;
 import com.wzf.tuojian.ui.model.UserInfo;
 import com.wzf.tuojian.utils.REGX;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -38,16 +33,14 @@ public class LoginActivity extends BaseActivity {
 //    @Bind(R.id.forget_psd)
 //    TextView forgetPsd;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        ButterKnife.bind(this);
-        initView();
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_login;
     }
 
-    private void initView() {
+    @Override
+    protected void init() {
 //        tvCenter.setText("登录");
 //        tvCenter.setVisibility(View.VISIBLE);
         etPhone.setFilters(REGX.getFilters(REGX.REGX_MOBILE_INPUT));
@@ -58,7 +51,7 @@ public class LoginActivity extends BaseActivity {
         etPsw.setSelection(UserInfo.getInstance().getPsw().length());
     }
 
-    @OnClick({R.id.to_register, R.id.btn_login})
+    @OnClick({R.id.to_register, R.id.btn_login, R.id.btn_login2})
     public void onViewClicked(View view) {
         switch (view.getId()) {
 //            case R.id.forget_psd:
@@ -68,6 +61,7 @@ public class LoginActivity extends BaseActivity {
                 startActivity(new Intent(this, RegisterActivity.class));
                 break;
             case R.id.btn_login:
+            case R.id.btn_login2:
                 login();
                 break;
 //            case R.id.qq:
@@ -100,7 +94,7 @@ public class LoginActivity extends BaseActivity {
             showToast("密码应该是6-20位");
             return;
         }
-        AccountRequestDto dto = new AccountRequestDto();
+        AccountReqDto dto = new AccountReqDto();
         dto.setPwd(pwd);
         dto.setPhoneNum(phone);
         UrlService.SERVICE.login(dto)
@@ -114,7 +108,7 @@ public class LoginActivity extends BaseActivity {
                         UserInfo.getInstance().setPhone(phone);
                         UserInfo.getInstance().setPsw(pwd);
                         showToast("登录成功");
-//                        startActivity(new Intent(LoginActivity.this, MenuActivity.class));
+                        startActivity(new Intent(LoginActivity.this, MenuActivity.class));
                         finish();
                     }
 

@@ -39,15 +39,20 @@
                 android:layout_weight="1">
 
                 <RadioButton
-                    android:id="@+id/radio_community"
+                    android:id="@+id/radio_manager"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:drawableTop="@drawable/selector_menu_decoration_manager"
                     android:button="@null"
                     android:checked="true"
                     android:gravity="center"
                     android:paddingTop="7dp"
-                    android:text="社区"
-                    android:textSize="13sp" />
+                    android:text="装修管理"
+                    android:textSize="10sp"
+                    android:textColor="@drawable/selector_text_menu"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
             </RelativeLayout>
 
@@ -58,14 +63,16 @@
                 android:gravity="center">
 
                 <RadioButton
-                    android:id="@+id/radio_game"
+                    android:id="@+id/radio_pre"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:drawableTop="@drawable/selector_menu_pre_decoration"
                     android:button="@null"
                     android:gravity="center"
                     android:paddingTop="7dp"
-                    android:text="桌游"
-                    android:textSize="13sp" />
+                    android:text="准备装修"
+                    android:textColor="@drawable/selector_text_menu"
+                    android:textSize="10sp" />
 
                 <com.wzf.tuojian.ui.views.RedPoint
                     android:id="@+id/redpoint_game"
@@ -86,14 +93,74 @@
                 android:gravity="center">
 
                 <RadioButton
-                    android:id="@+id/radio_me"
+                    android:id="@+id/radio_message"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:drawableTop="@drawable/selector_menu_message"
                     android:button="@null"
                     android:gravity="center"
                     android:paddingTop="7dp"
-                    android:text="个人"
-                    android:textSize="13sp" />
+                    android:text="消息"
+                    android:textColor="@drawable/selector_text_menu"
+                    android:textSize="10sp" />
+
+                <com.wzf.tuojian.ui.views.RedPoint
+                    android:id="@+id/redpoint_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/radio_mall"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableTop="@drawable/selector_menu_mall"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingTop="7dp"
+                    android:text="逛主材"
+                    android:textColor="@drawable/selector_text_menu"
+                    android:textSize="10sp" />
+
+                <com.wzf.tuojian.ui.views.RedPoint
+                    android:id="@+id/redpoint_store"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/radio_me"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableTop="@drawable/selector_menu_me"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingTop="7dp"
+                    android:text="个人中心"
+                    android:textColor="@drawable/selector_text_menu"
+                    android:textSize="10sp" />
 
                 <com.wzf.tuojian.ui.views.RedPoint
                     android:id="@+id/redpoint_me"

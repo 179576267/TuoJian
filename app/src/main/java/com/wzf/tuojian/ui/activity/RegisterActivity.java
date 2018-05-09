@@ -1,6 +1,5 @@
 package com.wzf.tuojian.ui.activity;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +11,11 @@ import com.wzf.tuojian.function.CountTimeDownManager;
 import com.wzf.tuojian.function.http.OkHttpUtils;
 import com.wzf.tuojian.function.http.ResponseSubscriber;
 import com.wzf.tuojian.function.http.dto.request.GetSmsCodeReqDto;
-import com.wzf.tuojian.function.http.dto.request.AccountRequestDto;
+import com.wzf.tuojian.function.http.dto.request.AccountReqDto;
 import com.wzf.tuojian.ui.base.BaseActivity;
 import com.wzf.tuojian.utils.REGX;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -42,14 +40,14 @@ public class RegisterActivity extends BaseActivity {
     Button btnGetCode;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        ButterKnife.bind(this);
-        initView();
+    public int getLayoutId() {
+        return R.layout.activity_register;
     }
 
-    private void initView() {
+
+
+    @Override
+    protected void init() {
         etPhone.setFilters(REGX.getFilters(REGX.REGX_MOBILE_INPUT));
     }
 
@@ -145,7 +143,7 @@ public class RegisterActivity extends BaseActivity {
             showToast("密码应该是6-20位");
             return;
         }
-        AccountRequestDto dto = new AccountRequestDto();
+        AccountReqDto dto = new AccountReqDto();
         dto.setSmsCode(smsCode);
         dto.setPwd(pwd);
         dto.setPhoneNum(phone);

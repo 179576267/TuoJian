@@ -1,7 +1,9 @@
 package com.wzf.tuojian.function.http.dto.response;
 
 /**
- * Created by wzf on 2017/7/16.
+ *
+ * @author wzf
+ * @date 2017/7/16
  */
 
 public class QiNiuTokenResDto {

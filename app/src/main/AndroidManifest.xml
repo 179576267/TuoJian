@@ -53,6 +53,9 @@
         <activity android:name="com.wzf.tuojian.ui.activity.LoginActivity"
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:screenOrientation="portrait"></activity>
+        <activity android:name="com.wzf.tuojian.ui.activity.MenuActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:screenOrientation="portrait"></activity>
 
         <!--**********************************************************************************************-->
         <activity

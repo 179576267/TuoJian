@@ -56,7 +56,7 @@ public class HeaderParams {
         return client;
     }
 
-    public String getClicentVersion() {
+    public String getClientVersion() {
         if(TextUtils.isEmpty(clicentVersion)){
             clicentVersion = AppDeviceInfo.getAppVersionName(MyApplication.getAppInstance());
         }
@@ -112,7 +112,7 @@ public class HeaderParams {
         headersBuilder.set("userId", getUserId());
         headersBuilder.set("token", getToken());
         headersBuilder.set("client", getClient());
-        headersBuilder.set("clicentVersion", getClicentVersion());
+        headersBuilder.set("clicentVersion", getClientVersion());
         headersBuilder.set("os", getOs());
         headersBuilder.set("osVersion", getOsVersion());
         headersBuilder.set("networkType", getNetworkType());

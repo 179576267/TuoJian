@@ -3,6 +3,7 @@ package com.wzf.tuojian.ui.base;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Toast;
 
 
@@ -16,7 +17,9 @@ import com.wzf.tuojian.utils.SoftInputUtil;
 import butterknife.ButterKnife;
 
 /**
- * Created by zhenfei.wang on 2016/8/8.
+ *
+ * @author zhenfei.wang
+ * @date 2016/8/8
  */
 public class BaseActivity extends AppCompatActivity {
     private final String TAG = getClass().getSimpleName();
@@ -30,7 +33,25 @@ public class BaseActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 竖屏
 //        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);// 不锁屏
         ActivityCollector.addActivity(this);
+        if(getLayoutId() != 0){
+            setContentView(getLayoutId());
+        }else if(getLayoutView() != null){
+            setContentView(getLayoutView());
+        }
+        ButterKnife.bind(this);
+        init();
+    }
 
+    protected void init() {
+
+    }
+
+    public int getLayoutId(){
+        return  0;
+    }
+
+    public View getLayoutView(){
+        return null;
     }
 
     @Override
@@ -101,7 +122,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ActivityCollector.removeActivity(this);
         ButterKnife.unbind(this);
+        ActivityCollector.removeActivity(this);
     }
 }

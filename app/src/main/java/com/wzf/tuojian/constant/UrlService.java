@@ -1,9 +1,11 @@
 package com.wzf.tuojian.constant;
 
 import com.wzf.tuojian.function.http.OkHttpUtils;
+import com.wzf.tuojian.function.http.dto.request.GetDecorateManagerReqDto;
 import com.wzf.tuojian.function.http.dto.request.GetSmsCodeReqDto;
-import com.wzf.tuojian.function.http.dto.request.AccountRequestDto;
+import com.wzf.tuojian.function.http.dto.request.AccountReqDto;
 import com.wzf.tuojian.function.http.dto.response.BaseResponse;
+import com.wzf.tuojian.function.http.dto.response.GetDecorateManagerResDto;
 import com.wzf.tuojian.function.http.dto.response.LoginResDto;
 import com.wzf.tuojian.function.http.dto.response.QiNiuTokenResDto;
 import com.wzf.tuojian.function.http.dto.response.UserInfoResDto;
@@ -37,7 +39,7 @@ public interface UrlService {
 
     //注册
     @POST("user/userRegister")
-    Observable<BaseResponse<Object>> register(@Body AccountRequestDto registerRequestDto);
+    Observable<BaseResponse<Object>> register(@Body AccountReqDto registerRequestDto);
 
     //修改密码接口
     @POST("user/changePwd")
@@ -46,7 +48,11 @@ public interface UrlService {
 
     //登录
     @POST("user/userLogin")
-    Observable<BaseResponse<LoginResDto>> login(@Body AccountRequestDto registerRequestDto);
+    Observable<BaseResponse<LoginResDto>> login(@Body AccountReqDto registerRequestDto);
+
+    //获取装修管理主页面
+    @POST("decorate/getDecorateManage")
+    Observable<BaseResponse<GetDecorateManagerResDto>> getDecorateManage(@Body GetDecorateManagerReqDto dto);
 
     //退出登录接口
     @POST("user/exit")

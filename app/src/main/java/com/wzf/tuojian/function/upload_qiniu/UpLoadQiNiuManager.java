@@ -118,7 +118,15 @@ public class UpLoadQiNiuManager {
     }
 
     public interface QiNiuUpLoadListener{
+        /**
+         * @param percent
+         */
          void progress(double percent);
+
+        /**
+         * @param success
+         * @param result
+         */
          void complete(boolean success, String result);
     }
 }

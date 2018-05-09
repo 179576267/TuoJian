@@ -1,17 +1,14 @@
 package com.wzf.tuojian.ui.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
-import android.view.Window;
-import android.view.WindowManager;
 
 
 import com.wzf.tuojian.R;
 import com.wzf.tuojian.constant.UrlService;
 import com.wzf.tuojian.function.http.ResponseSubscriber;
-import com.wzf.tuojian.function.http.dto.request.AccountRequestDto;
+import com.wzf.tuojian.function.http.dto.request.AccountReqDto;
 import com.wzf.tuojian.function.http.dto.response.LoginResDto;
 import com.wzf.tuojian.ui.base.BaseActivity;
 import com.wzf.tuojian.ui.model.UserInfo;
@@ -31,19 +28,12 @@ public class StartActivity extends BaseActivity {
     private boolean loginSuccess = false;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //定义全屏参数
-        int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
-        //获得当前窗体对象
-        Window window = getWindow();
-        //设置当前窗体为全屏显示
-        window.setFlags(flag, flag);
-        setContentView(R.layout.activity_start_page);
-        init();
+    public int getLayoutId() {
+        return R.layout.activity_start_page;
     }
 
-    private void init() {
+    @Override
+    public void init() {
 //        Glide.with(this).load(R.mipmap.start_page).asGif().into(im);
         // 使用Handler的postDelayed方法，3秒后执行跳转到MainActivity
         new Handler().postDelayed(new Runnable() {
@@ -64,7 +54,7 @@ public class StartActivity extends BaseActivity {
             return;
         }
 
-        AccountRequestDto dto = new AccountRequestDto();
+        AccountReqDto dto = new AccountReqDto();
         dto.setPwd(psw);
         dto.setPhoneNum(accountNum);
         UrlService.SERVICE.login(dto)

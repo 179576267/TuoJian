@@ -1,10 +1,12 @@
 package com.wzf.tuojian.function.http.dto.request;
 
 /**
- * Created by wzf on 2017/6/28.
+ *
+ * @author wzf
+ * @date 2017/6/28
  */
 
-public class AccountRequestDto extends BaseRequestDto{
+public class AccountReqDto extends BaseRequestDto{
 
     /**
      *{
