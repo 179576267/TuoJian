@@ -82,7 +82,6 @@ public class RegisterActivity extends BaseActivity {
             case R.id.btn_get_code:
                 getSmsCode();
                 //dev master
-                break;
             case R.id.btn_login:
                 register();
                 break;
