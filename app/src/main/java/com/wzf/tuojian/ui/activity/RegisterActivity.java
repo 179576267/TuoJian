@@ -81,10 +81,10 @@ public class RegisterActivity extends BaseActivity {
                 break;
             case R.id.btn_get_code:
                 getSmsCode();
+                //v.1.0
                 break;
             case R.id.btn_login:
                 register();
-                
                 break;
             default:
                 break;
