@@ -29,7 +29,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
+    <uses-library android:name="android.test.runner"/>
     <application
         android:name="com.wzf.tuojian.MyApplication"
         android:allowBackup="true"
@@ -170,5 +170,9 @@
             </intent-filter>
         </service>
     </application>
+
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.wzf.tuojian"
+        android:label="Test My App"></instrumentation>
 
 </manifest>
